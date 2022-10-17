@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body %}
+    <h1 >New page</h1>
+
+    {% if exist%}
+    <div class="alert alert-danger">
+       This entry Exists. If you want to see or edit this page, <a href="{{page}}">press here</a>
+    </div>
+    {%endif%}
+    <form action= "{% url 'new' %}" method="post">
+        {% csrf_token %}
+        <div>
+            {{title}}
+        </div>
+        <div>
+            {{body}}
+        </div>
+        <div>
+            <input type="submit" style="width: 4cm; background: #1a73e8; color:white;">
+        </div>
+    </form> 
+{% endblock %}

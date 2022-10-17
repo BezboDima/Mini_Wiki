@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit {{entry_name}}
+{% endblock %}
+
+
+
+{% block body %}
+    <h1 >Edit {{entry_name}} </h1>
+    
+    <form action= "/wiki/{{entry_name}}/edit" method="post">
+        {% csrf_token %}
+        <div>
+            {{form}}
+        </div>
+        <div>
+            <input type="submit" style="width: 4cm; background: #1a73e8; color:white;">
+        </div>
+    </form> 
+{% endblock %}
